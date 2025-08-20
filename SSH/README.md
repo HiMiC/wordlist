@@ -1,6 +1,9 @@
 
 # Словари для поиска SSH ключей в WEB
 
+
+
+## Создание словаря
 Генерация словарей
 
 https://hackware.ru/?p=15350#8
@@ -16,4 +19,17 @@ hashcat -a 1 --stdout files_dir.txt w_ext.txt > w_dir_ext.txt
 hashcat -a 1 --stdout files_dir.txt files_backup.txt > w_dir_backup.txt
 
 cat  ssh-priv-key.txt w_ext.txt w_dir_ext.txt files_backup.txt  w_dir_backup.txt > all.txt
+```
+## Использование
+
+```
+# делать по домену и поддомену
+
+# скрыть status code 302,404 и размер ответа 84
+
+wfuzz -w /opt/wordlists/all.txt --hw 84 --hc 302,404 https://domain.ru/FUZZ
+
+# не забываем проверять IP
+wfuzz -w /opt/wordlists/all.txt --hw 84 --hc 404 https://<IP>/FUZZ
+
 ```
