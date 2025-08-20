@@ -1,0 +1,10 @@
+ssh_backup.tar.gz
+ssh_backup.tar
+ssh_backup.zip
+ssh_backup.rar
+ssh_backup.7z
+keys_backup.tar.gz
+keys_backup.tar
+keys_backup.zip
+keys_backup.rar
+keys_backup.7z

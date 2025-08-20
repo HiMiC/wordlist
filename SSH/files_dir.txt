@@ -1,0 +1,14 @@
+.ssh/
+ssh/
+static/
+public/
+public_html/
+public_html/.ssh/
+backup/
+tmp/
+www/
+var/www/
+uploads/
+files/
+assets/
+media/
