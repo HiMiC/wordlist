@@ -4,7 +4,7 @@
 ## Брутфорс
 
 nmap
-```
+```bash
 # словарь nmap
 sudo nmap -sU -p 161 --script snmp-brute <IP>
 
@@ -20,14 +20,21 @@ https://github.com/trailofbits/onesixtyone
 https://github.com/trailofbits/onesixtyone/releases
 
 
-```text
+```bash
 git clone https://github.com/trailofbits/onesixtyone.git
 cd onesixtyone/
 make
+cp onesixtyone /usr/local/bin/
 
-./onesixtyone -c /opt/wordlist/SNMP/community.txt  <IP>
+onesixtyone -c /opt/wordlist/SNMP/community.txt  <IP>
 
-./onesixtyone -c /opt/wordlist/SNMP/community.txt  -i hosts.txt -o community_true.log -w 100
+onesixtyone -c /opt/wordlist/SNMP/community.txt  -i hosts.txt -o community_true.log -w 100
+
+# internal внутрянка
+onesixtyone 192.168.0.0/24 public
+onesixtyone 10.0.0.0/8 public
+onesixtyone 192.168.0.0/24 private
+onesixtyone 10.0.0.0/8 private
 ```
 
 
@@ -35,13 +42,13 @@ make
 ## Получение информации
 
 Для использования нам понадобятся установка: snmpset snmpwalk snmpbulkwalk
-```
+```bash
 apt install snmp snmp-mibs-downloader
 ```
 
 
 Nmap NSE Скрипты
-```text
+```bash
 ls -1 /usr/share/nmap/scripts/snmp-* 
 
 snmp-brute.nse 
@@ -59,7 +66,7 @@ snmp-win32-users.nse
 ```
 
 
-```text
+```basg
 sudo nmap -sU -p 161 --script snmp-info <IP>
 
 PORT    STATE SERVICE
@@ -73,7 +80,7 @@ PORT    STATE SERVICE
 ```
 
 Получение информации о подключенных интерфейсах (если доступен public)
-```
+```bash
 sudo nmap -sU -p 161 --script snmp-interfaces  <IP>
 
 
@@ -100,7 +107,7 @@ PORT    STATE SERVICE
 
 Извлекаем данные SNMP с помощью snmpwalk по протоколу v1 или v2c
 
-```text
+```bash
 snmpwalk -v1 -c public <IP> .
 snmpwalk -v2c -c public <IP> .
 
@@ -116,7 +123,7 @@ snmpbulkwalk -v2c -c private <IP> .
 
 
 Использование snmpenum
-```text
+```bash
 git clone https://github.com/ajohnston9/snmpenum.git
 cd snmpenum/
 perl snmpenum.pl

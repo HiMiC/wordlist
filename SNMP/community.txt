@@ -212,3 +212,13 @@ write
 writeit
 xyzzy
 yellow
+quagga
+abcdefghijklmnop
+JtRrocks
+lolcats
+longbutlamepassword
+longbutstilllamepassword
+cisco123
+openwall12345
+password12345
+1234567812345
